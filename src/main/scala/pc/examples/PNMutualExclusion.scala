@@ -13,12 +13,20 @@ object PNMutualExclusion extends App {
   import place._
 
   // DSL-like specification of A Petri Net
-  def mutualExclusionSystem() = toSystem(PetriNet[Place](
+  def mutualExclusionSystemDSL() = toSystem(PetriNet[Place](
     MSet(N) ~~> MSet(T),
     MSet(T) ~~> MSet(C) ^^^ MSet(C),
     MSet(C) ~~> MSet())
   )
 
+  // DSL-like specification of A Petri Net
+  def mutualExclusionSystem() = toSystem(PetriNet[Place](
+    (MSet(N), MSet(T), MSet()),
+    (MSet(T), MSet(C), MSet(C)),
+    (MSet(C), MSet(), MSet()))
+  )
+
   // example usage
+  println(mutualExclusionSystemDSL().paths(MSet(N,N),7).toList.mkString("\n"))
   println(mutualExclusionSystem().paths(MSet(N,N),7).toList.mkString("\n"))
 }
