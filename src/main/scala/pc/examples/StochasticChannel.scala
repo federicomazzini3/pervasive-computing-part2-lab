@@ -18,6 +18,15 @@ object StochasticChannel extends App {
     (DONE,1.0,DONE)
   )
 
+  def stocChannel2: CTMC[State] = CTMC.ofTransitions(
+    (IDLE,1.0,SEND),
+    (SEND,2.0,SEND),
+    (SEND,4.0,DONE),
+    (SEND,1.0,FAIL),
+    (FAIL,1.0,IDLE),
+    (DONE,1.0,DONE)
+  )
+
   // example run
   state.values.foreach(s => println(s,stocChannel.transitions(s)))
 }
