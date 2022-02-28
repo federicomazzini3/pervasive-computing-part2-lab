@@ -1,7 +1,7 @@
 package pc.examples
 
-import pc.modelling.PetriNet
-import pc.modelling.PetriNet._
+import pc.modelling.PetriNet.{LeftTransitionRelation, RightTransitionRelation, toSystem}
+import pc.modelling.{PetriNet, Priority, PriorityPetriNet}
 import pc.utils.MSet
 
 object PNMutualExclusion extends App {
@@ -11,6 +11,7 @@ object PNMutualExclusion extends App {
   }
   type Place = place.Value
   import place._
+
 
   // DSL-like specification of A Petri Net
   def mutualExclusionSystemDSL() = toSystem(PetriNet[Place](
@@ -26,7 +27,14 @@ object PNMutualExclusion extends App {
     (MSet(C), MSet(), MSet()))
   )
 
+  def prioritySystem() = PriorityPetriNet.toSystem(PriorityPetriNet[Place](
+    (MSet(N), 3, MSet(T), MSet()),
+    (MSet(T), 2, MSet(C), MSet(C)),
+    (MSet(C), 1, MSet(), MSet()))
+  )
+
   // example usage
-  println(mutualExclusionSystemDSL().paths(MSet(N,N),7).toList.mkString("\n"))
-  println(mutualExclusionSystem().paths(MSet(N,N),7).toList.mkString("\n"))
+  println(mutualExclusionSystemDSL().paths(MSet(N,N),7).toList.mkString("\n") + "\n")
+  println(mutualExclusionSystem().paths(MSet(N,N),7).toList.mkString("\n") + "\n")
+  println(prioritySystem().paths(MSet(N,N),7).toList.mkString("\n") + "\n")
 }

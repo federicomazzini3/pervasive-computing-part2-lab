@@ -40,7 +40,7 @@ object System { // Our factory of Systems
       override def next(s: S) = f.applyOrElse(s, (x: S)=>Set[S]())
     }
 
-  //preso uno statos , ritrovo tutti i next filtrando e restituendo gli stati raggiunti da s
+  //preso uno stato s, ritrovo tutti i next filtrando e restituendo gli stati raggiunti da s
   // Extensional specification
   def ofRelation[S](rel: Set[(S,S)]): System[S] = ofFunction{
     case s: S => rel filter (_._1 == s) map (_._2)
