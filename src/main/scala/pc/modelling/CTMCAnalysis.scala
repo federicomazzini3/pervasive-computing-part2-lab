@@ -6,9 +6,18 @@ trait CTMCAnalysis[S] extends CTMCSimulation[S] { self: CTMC[S] =>
 
   type Property[A] = Trace[A] => Boolean
 
-  // globally is simply achieved by equivalence not G x= F not x
   def eventually[A](filt: A=>Boolean): Property[A] =
     (trace) => trace.exists{case (t,a) => filt(a)}
+
+  // globally is simply achieved by equivalence not G x= F not x
+  def globally[A](filt: A => Boolean): Property[A] =
+   (trace) => !eventually((s:A) => !filt(s))(trace)
+
+  def until[A](first: A => Boolean, second: A => Boolean): Property[A] =
+    (trace) => {
+      trace.exists{case (t,a) => second(a)} &&
+        trace.takeWhile{case (t,a) => !second(a)}.forall{case (t,a) => first(a)}
+    }
 
   // takes a property and makes it time bounded by the magics of streams
   def bounded[A](timeBound: Double)(prop: Property[A]): Property[A] =
