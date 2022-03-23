@@ -11,20 +11,8 @@
     </option>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e4b3763-5529-494c-a5d3-4f436b2838ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hydra.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/code-repo_3558.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+    <list default="true" id="b0ff8218-7c0b-4208-a9e9-90a65a346846" name="Changes" comment="Scala vs Prism task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/pc/modelling/PetriNet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/pc/modelling/PetriNet.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/pc/modelling/System.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/pc/modelling/System.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/pc/modelling/SystemChannelSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/pc/modelling/SystemChannelSpec.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +41,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31724137" />
   </component>
   <component name="RunManager" selected="Application.StochasticChannelExperiment">
-    <configuration name="DAPGossip" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.DAPGossip" />
+    <configuration name="RainProblem" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="pc.examples.RainProblem" />
       <module name="formalsystems" />
       <extension name="coverage">
         <pattern>
@@ -140,22 +129,30 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.StochasticChannelExperiment" />
+        <item itemvalue="Application.RainProblem" />
         <item itemvalue="ScalaTest.SystemChannelSpec" />
         <item itemvalue="Application.SystemChannel" />
         <item itemvalue="ScalaTest.ScalaTests in 'scala'" />
-        <item itemvalue="Application.DAPGossip" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4e4b3763-5529-494c-a5d3-4f436b2838ca" name="Changes" comment="" />
+      <changelist id="b0ff8218-7c0b-4208-a9e9-90a65a346846" name="Changes" comment="" />
       <created>1636237795245</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636237795245</updated>
     </task>
+    <task id="LOCAL-00001" summary="Scala vs Prism task">
+      <created>1646479237163</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646479237163</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,5 +166,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Scala vs Prism task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scala vs Prism task" />
   </component>
 </project>
