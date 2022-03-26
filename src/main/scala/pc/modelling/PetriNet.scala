@@ -45,7 +45,7 @@ trait Priority extends PetriNet {
   {case m =>
     for ((cond, p, eff,inh) <- pn;
          if m disjoined inh;
-         if !pn.exists(tr => m.matches(tr._1) && tr._2 > p); //se non esiste una transizione con più alta priorità
+         if !pn.exists(tr => m.matches(tr._1) && !tr._1.matches(cond) && tr._2 > p); //se non esiste una transizione con più alta priorità
          out <- m extract cond
          ) yield out union eff
      }

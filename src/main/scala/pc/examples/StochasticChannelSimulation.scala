@@ -17,6 +17,7 @@ object StochasticChannelSimulation extends App {
     () => channelAnalysis.newSimulationTrace(IDLE, new Random()))
 
   val failTime = simulation.reduce(_.toList
+    .takeWhile(_._2 != DONE)
     .sliding(2, 1)
     .map(l => (l(0), l(1)))
     .collect { case ((t1, FAIL), (t2, _)) => t2 - t1 }
