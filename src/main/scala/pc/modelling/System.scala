@@ -49,3 +49,21 @@ object System { // Our factory of Systems
   // Extensional with varargs.. note binary tuples can be defined by s->b
   def ofTransitions[S](rel: (S,S)*): System[S] = ofRelation(rel.toSet)
 }
+
+object SystemVerifies{
+  implicit class PathsExtension[S](paths: Stream[List[S]]){
+    def checkSafety(condition: S => Boolean) =
+      verifyAlways(paths)(condition)
+
+    def checkLiveness(condition: S => Boolean) =
+      verifyCertain(paths)(condition)
+  }
+
+  private def verifyAlways[S](paths: Stream[List[S]])(condition: S => Boolean) =
+    paths.foreach(path =>
+      path.foreach(state => assert(condition(state))))
+
+  private def verifyCertain[S](paths: Stream[List[S]])(condition: S => Boolean) =
+    paths.foreach(path =>
+      assert(path.exists(state => condition(state))))
+}

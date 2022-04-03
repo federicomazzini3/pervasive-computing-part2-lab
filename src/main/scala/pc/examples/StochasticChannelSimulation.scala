@@ -23,14 +23,14 @@ object StochasticChannelSimulation extends App {
     .collect { case ((t1, FAIL), (t2, _)) => t2 - t1 }
     .sum)
 
-  val doneTime = simulation.reduce(_.dropWhile(_._2 != DONE).head)
+  val doneTime = simulation.reduce(_.dropWhile(_._2 != DONE).head._1)
 
   println(
-    "\nAVG DONE time: " + doneTime.map(_._1).sum / doneTime.size
-      + "\nMAX DONE time: " + doneTime.map(_._1).max
-      + "\nMIN DONE time: " + doneTime.map(_._1).min
+    "\nAVG DONE time: " + doneTime.sum / doneTime.size
+      + "\nMAX DONE time: " + doneTime.max
+      + "\nMIN DONE time: " + doneTime.min
       + "\nAVG FAIL time: " + failTime.sum / failTime.size
-      + "\n% of FAIL time before DONE : " + ((failTime.sum / failTime.size) / (doneTime.map(_._1).sum / doneTime.size) * 100 ).round + "%")
+      + "\n% of FAIL time before DONE : " + ((failTime.sum / failTime.size) / (doneTime.sum / doneTime.size) * 100 ).round + "%")
 }
 
 
