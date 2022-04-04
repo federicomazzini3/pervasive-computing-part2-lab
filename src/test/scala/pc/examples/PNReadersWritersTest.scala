@@ -14,14 +14,14 @@ class PNReadersWritersTest extends FlatSpec {
 
   "PN for readers and writers" should "avoid more than 1 writer at the time and no reader" in {
     //without API
-   PNRW.paths(MSet(START, START, START, START, START, PERMIT), 10)
+   PNRW.paths(MSet(START, START, START, PERMIT), 15)
      .foreach(path => path
        .foreach(state => ! (state matches MSet(WRITE, WRITE)) && //only one writer concurrently
                          ! (state matches MSet(WRITE, READ)) //no reader allowed when writer writes
    ))
 
     //with API
-    PNRW.paths(MSet(START,PERMIT),  10) checkSafety {
+    PNRW.paths(MSet(START, START, START, PERMIT),  15) checkSafety {
       state => !(state matches MSet(WRITE, WRITE)) && //only one writer concurrently
                ! (state matches MSet(WRITE, READ))  //no reader allowed when writer writes
     }
